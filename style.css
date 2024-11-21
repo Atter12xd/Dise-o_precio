@@ -130,8 +130,8 @@ button:hover {
 
 /* Botón de acción */
 .cta-button {
-    background: #00a28d; /* Gradiente dinámico */
-    color: #fff;
+    background: #00a28d; /* Color del botón */
+    color: #fff; /* Color del texto */
     border: none;
     padding: 14px 22px;
     border-radius: 6px;
@@ -140,12 +140,25 @@ button:hover {
     cursor: pointer;
     transition: all 0.3s ease, transform 0.2s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-decoration: none; /* Elimina subrayados */
+}
+
+.cta-button a {
+    text-decoration: none; /* Elimina subrayado del enlace */
+    color: inherit; /* Hereda el color del botón */
+    display: inline-block; /* Hace que el enlace sea un bloque interno */
+    width: 100%; /* Ocupa todo el ancho del botón */
+    height: 100%; /* Ocupa toda la altura del botón */
+}
+
+.cta-button a:visited {
+    color: inherit; /* Mantiene el color después de visitar */
 }
 
 .cta-button:hover {
-    background: var(--bg-gradient);
+    background: #00876b; /* Color del botón en hover */
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2); /* Hover con sombra profunda */
-    transform: scale(1.05); /* Botón ligeramente más grande al hover */
+    transform: scale(1.05); /* Animación de agrandamiento */
 }
 
 /* Clases adicionales */
@@ -200,13 +213,39 @@ button:hover {
 }
 
 #volume-slider {
-    width: 80%;
+    appearance: none; /* Eliminar estilos predeterminados */
+    width: 100%;
     margin: 1rem auto;
     display: block;
+    background: #ddd; /* Color del fondo de la barra */
+    border: none; /* Eliminar borde */
+    height: 8px; /* Altura de la barra */
+    border-radius: 5px; /* Esquinas redondeadas */
+    outline: none; /* Quitar el contorno al seleccionar */
+}
+#volume-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px; /* Tamaño del control */
+    height: 20px;
+    background: #808f96; /* Color del control */
+    border-radius: 50%; /* Hacerlo circular */
+    border: none; /* Eliminar borde */
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#volume-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #007bff;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
 #slider-value {
-    font-size: 1.25rem;
+    font-size: 1.65rem;
     font-weight: bold;
     color: #333;
 }
@@ -227,6 +266,7 @@ button:hover {
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 250px;
+    margin-top: 48px;
 }
 
 .pricing-card h3 {
@@ -274,7 +314,7 @@ button:hover {
 }
 
 .pricing-details th {
-    background: #00a294;
+    background: #0e035c ;
     color: #fff;
     font-weight: bold;
 }
@@ -283,4 +323,45 @@ button:hover {
     background-color: #f9f9f9;
 }
 
+.slider-container {
+    position: relative;
+    margin: 2rem 0;
+}
+
+.slider-container {
+    position: relative; /* Hacer que las etiquetas sean posicionables */
+    width: 100%;
+}
+
+.slider-labels {
+    position: relative;
+    width: 100%;
+    margin-top: -50px; /* Separación con el deslizador */
+    font-size: 0.9rem;
+    color: #606f7b;
+}
+
+.slider-labels span {
+    position: absolute; /* Posición absoluta dentro del contenedor */
+    top: 0; /* Alinear en la parte superior */
+    transform: translateX(-50%); /* Centrar horizontalmente */
+}
+
+/* Posiciones personalizadas */
+.label-50 {
+    left: 1%; /* Extremo izquierdo */
+    
+}
+
+.label-10000 {
+    left: 11%; /* Aproximadamente 1/4 del ancho */
+
+}
+.label-50000 {
+    left: 50%; /* Aproximadamente 3/4 del ancho */
+}
+
+.label-100000 {
+    left: 99%; /* Extremo derecho */
+}
 

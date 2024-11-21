@@ -26,6 +26,7 @@ const sliderValue = document.getElementById("slider-value");
 const priceFirmEasy = document.getElementById("price-firmeasy");
 const priceDocusign = document.getElementById("price-docusign");
 const priceDropbox = document.getElementById("price-dropbox");
+const PEN_TO_USD = 3.7; // Tasa de conversión
 
 slider.addEventListener("input", () => {
     const volume = parseInt(slider.value, 10);
@@ -40,15 +41,16 @@ slider.addEventListener("input", () => {
     } else {
         priceFirm = volume * 0.05; // Rango 3
     }
-    priceFirmEasy.textContent = `S/ ${priceFirm.toFixed(2)}`;
+    priceFirmEasy.textContent = `$ ${(priceFirm / PEN_TO_USD).toFixed(2)}`;
 
     // Precios de DocuSign API (más caro)
-    const priceDocusignLow = (volume * 0.25).toFixed(2); // Más caro
-    const priceDocusignHigh = (volume * 0.35).toFixed(2); // Rango superior
-    priceDocusign.textContent = `S/ ${priceDocusignLow} - S/ ${priceDocusignHigh}`;
+    const priceDocusignLow = (volume * 0.25 / PEN_TO_USD).toFixed(2);
+    const priceDocusignHigh = (volume * 0.35 / PEN_TO_USD).toFixed(2);
+    priceDocusign.textContent = `$ ${priceDocusignLow} - $ ${priceDocusignHigh}`;
 
     // Precios de Dropbox Sign API (más caro que DocuSign)
-    const priceDropboxLow = (volume * 0.50).toFixed(2); // Más caro
-    const priceDropboxHigh = (volume * 0.55).toFixed(2); // Rango más alto
-    priceDropbox.textContent = `S/ ${priceDropboxLow} - S/ ${priceDropboxHigh}`;
+    const priceDropboxLow = (volume * 0.50 / PEN_TO_USD).toFixed(2);
+    const priceDropboxHigh = (volume * 0.55 / PEN_TO_USD).toFixed(2);
+    priceDropbox.textContent = `$ ${priceDropboxLow} - $ ${priceDropboxHigh}`;
+    
 });
