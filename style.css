@@ -1,0 +1,286 @@
+/* Reset básico */
+body, h1, h3, ul, li, p, button {
+    margin: 0;
+    padding: 0;
+    font-family: 'IBM Plex Sans', Arial, sans-serif;
+    box-sizing: border-box;
+    font-size: var(--text-size-sm);
+}
+h2 {
+    font-size: var(--title-size-lg);
+    font-weight: 600;
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+/* Fondo general */
+body {
+    background-color: #f7f9fc; /* Fondo más claro */
+    color: #333;
+    padding: 20px;
+}
+
+/* Encabezado */
+header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.switch-container {
+    display: flex;
+    gap: 15px;
+}
+
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    background: #fff;
+    color: #333;
+    font-weight: bold;
+    transition: all 0.3s ease, transform 0.2s ease;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1); /* Botones con sombra ligera */
+}
+
+button.active {
+    background: var(--bg-gradient); /* Gradiente basado en variables */
+    color: #fff;
+    transform: scale(1.05); /* Aumenta ligeramente al estar activo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+button:hover {
+    background: var(--bg-gradient); /* Mantener gradiente en hover */
+    opacity: 0.9;
+    box-shadow: 0 4px 10px rgba(60, 123, 232, 0.2); /* Hover con sombra */
+}
+
+/* Contenedor de los planes */
+.plans {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* Cada plan */
+.plan {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Suave sombra */
+    padding: 25px 20px;
+    width: 280px;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: all 0.3s ease, transform 0.2s ease;
+}
+
+.plan:hover {
+    transform: translateY(-5px); /* Elevación suave */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más profunda */
+    border: 2px solid var(--accent-color); /* Cambia a color principal */
+}
+
+/* Plan destacado */
+
+
+/* Estilos de encabezados */
+.plan h3 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.plan p {
+    font-size: 16px;
+    color: #606f7b;
+    margin-bottom: 15px;
+}
+
+.plan strong {
+     /* Color dinámico */
+    font-weight: bold;
+}
+
+/* Precio */
+.plan h1 {
+    font-size: 32px;
+    color: var(--accent-color); /* Color dinámico */
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+/* Ahorro (savings) */
+.plan .savings {
+    color: #4b494b;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Botón de acción */
+.cta-button {
+    background: #00a28d; /* Gradiente dinámico */
+    color: #fff;
+    border: none;
+    padding: 14px 22px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover {
+    background: var(--bg-gradient);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2); /* Hover con sombra profunda */
+    transform: scale(1.05); /* Botón ligeramente más grande al hover */
+}
+
+/* Clases adicionales */
+.hidden {
+    display: none;
+}
+
+/* Variables de colores */
+:root {
+    --container-max-width: 1200px;
+    --container-max-width-md: 768px;
+    --accent-color: #00a280;
+    --tertiary-color: #4646a7;
+    --secondary-color: #01a182;
+    --bg-color: #f7f7f7;
+    --bg-gradient: linear-gradient(90deg, var(--accent-color) 0%, var(--secondary-color) 30%, var(--tertiary-color) 100%);
+    --bg-gradient-text: linear-gradient(90deg, var(--text-color) 0%, var(--accent-color) 100%);
+    --font: "IBM Plex Sans", sans-serif;
+    
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .plans {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .plan {
+        width: 90%;
+    }
+}
+#api-pricing {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2rem;
+}
+
+#api-pricing h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+#api-pricing .subtitle {
+    color: #606f7b;
+    margin-bottom: 2rem;
+}
+
+.slider-container {
+    margin: 2rem 0;
+}
+
+#volume-slider {
+    width: 80%;
+    margin: 1rem auto;
+    display: block;
+}
+
+#slider-value {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.pricing-table {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.pricing-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+}
+
+.pricing-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.pricing-card .badge {
+    background: #ffcc00;
+    color: #333;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.pricing-card .price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 1rem 0;
+    color: #333;
+}
+.pricing-details {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.pricing-details table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    max-width: 800px;
+    font-size: 1rem;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.pricing-details th,
+.pricing-details td {
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.pricing-details th {
+    background: #00a294;
+    color: #fff;
+    font-weight: bold;
+}
+
+.pricing-details tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+

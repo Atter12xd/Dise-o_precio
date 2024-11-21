@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="switch-container">
+            <button id="web-btn" class="active">RECARGA</button>
+            <button id="api-btn">API</button>
+        </div>
+    </header>
+    <main>
+        <!-- Contenido de Web -->
+        <section id="web-plans" class="plans active">
+            
+            <div class="plan">
+                <h3>Paquete 10</h3>
+                <p>Válido para <strong>10 Firmas</strong></p>
+                <h2>S/ 10.00</h2>
+                <button class="cta-button">Comprar Paquete</button>
+            </div>
+            <div class="plan highlighted">
+                <h3>Paquete 20</h3>
+                <p>Válido para <strong>20 Firmas</strong></p>
+                <h2>S/ 19.00</h2>
+                <p class="savings">Ahorra S/ 1.00</p>
+                <button class="cta-button">Comprar Paquete</button>
+            </div>
+            <div class="plan">
+                <h3>Paquete 50</h3>
+                <p>Válido para <strong>50 Firmas</strong></p>
+                <h2>S/ 45.00</h2>
+                <p class="savings">Ahorra S/ 5.00</p>
+                <button class="cta-button">Comprar Paquete</button>
+            </div>
+            <div class="plan highlighted">
+                <h3>Paquete 100</h3>
+                <p>Válido para <strong>100 Firmas</strong></p>
+                <h2>S/ 85.00</h2>
+                <p class="savings">Ahorra S/ 15.00</p>
+                <button class="cta-button">Comprar Paquete</button>
+            </div>
+        </section>
+
+        <!-- Contenido de API -->
+        <section id="api-pricing" class="hidden">
+            <h1>Precios a Escala</h1>
+            <p class="subtitle">
+                Precios ajustados al volumen de firmas electrónicas. Sin costos ocultos ni compromisos anuales.
+            </p>
+        
+            <div class="slider-container">
+                <input type="range" id="volume-slider" min="50" max="100000" step="50" value="1000">
+                <p id="slider-value">1,000 sobres al mes</p>
+            </div>
+        
+            <div class="pricing-table">
+                <div class="pricing-card">
+                    <h3>FirmEasy API <span class="badge">Starter</span></h3>
+                    <p id="price-firmeasy" class="price">S/ 294</p>
+                    <p>Mensual, contrato mensual</p>
+                </div>
+                <div class="pricing-card">
+                    <h3>DocuSign API</h3>
+                    <p id="price-docusign" class="price">S/ 1,081 - S/ 5,288</p>
+                    <p>Mensual, contrato anual</p>
+                </div>
+                <div class="pricing-card">
+                    <h3>Dropbox Sign API</h3>
+                    <p id="price-dropbox" class="price">S/ 1,763 - S/ 2,938</p>
+                    <p>Mensual, contrato anual</p>
+                </div>
+            </div>
+            <div class="pricing-details">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Plan</th>
+                            <th>Volumen Incluido</th>
+                            <th>Precio por Sobre Adicional</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Básico</td>
+                            <td>50 a 1,000 sobres</td>
+                            <td>S/ 0.09</td>
+                        </tr>
+                        <tr>
+                            <td>Intermedio</td>
+                            <td>1,001 a 10,000 sobres</td>
+                            <td>S/ 0.07</td>
+                        </tr>
+                        <tr>
+                            <td>Avanzado</td>
+                            <td>10,001 a 100,000 sobres</td>
+                            <td>S/ 0.05</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>  
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
