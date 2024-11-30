@@ -3,20 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Planes</title>
+    <title>Planes y Recargas</title>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
     <header>
-        <div class="switch-container">
-            <button id="web-btn" class="active">RECARGA</button>
-            <button id="api-btn">API</button>
-        </div>
+        <h2>Planes y Recargas</h2>
     </header>
     <main>
-        <!-- Contenido de Web -->
-        <section id="web-plans" class="plans active">
-            
+        <!-- Contenido de Paquetes -->
+        <section id="web-plans" class="plans">
             <div class="plan">
                 <h3>Paquete 10</h3>
                 <p>Válido para <strong>10 Firmas</strong></p>
@@ -55,17 +52,16 @@
             </div>
         </section>
 
-        <!-- Contenido de API -->
-        <section id="api-pricing" class="hidden">
-            <h1>PRECIOS A ESCALA</h1>
+        <!-- Contenido de Recargas (API) -->
+        <section id="api-pricing">
+            <h2>RECARGAS</h2>
             <p class="subtitle">
-                Precios ajustados al volumen de firmas electrónicas. Sin costos ocultos ni compromisos anuales.
+                Precios ajustados al volumen de firmas electrónicas y digital. Sin costos ocultos ni compromisos anuales.
             </p>
             <p id="slider-value">1,000 sobres al mes</p>
         
             <div class="slider-container">
                 <input type="range" id="volume-slider" min="50" max="100000" step="50" value="1000">
-                
                 <div class="slider-labels">
                     <span class="label-50">50</span>
                     <span class="label-10000">10,000</span>
@@ -91,36 +87,28 @@
                     <p>Mensual, contrato anual</p>
                 </div>
             </div>
-            <div class="pricing-details">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Plan</th>
-                            <th>Volumen Incluido</th>
-                            <th>Precio por Sobre Adicional</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Básico</td>
-                            <td>50 a 1,000 sobres</td>
-                            <td>$ 0.09</td>
-                        </tr>
-                        <tr>
-                            <td>Intermedio</td>
-                            <td>1,001 a 10,000 sobres</td>
-                            <td>$ 0.07</td>
-                        </tr>
-                        <tr>
-                            <td>Avanzado</td>
-                            <td>10,001 a 100,000 sobres</td>
-                            <td>$ 0.05</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>  
-        </section>  
+        </section>
     </main>
-    <script src="script.js"></script>
+
+    <script>
+        const slider = document.getElementById("volume-slider");
+        const sliderValue = document.getElementById("slider-value");
+        const priceFirmEasy = document.getElementById("price-firmeasy");
+        const priceDocusign = document.getElementById("price-docusign");
+        const priceDropbox = document.getElementById("price-dropbox");
+
+        function updatePrices(volume) {
+            sliderValue.textContent = `${volume.toLocaleString()} sobres al mes`;
+            priceFirmEasy.textContent = `$ ${(volume * 0.08).toFixed(2)}`;
+            priceDocusign.textContent = `$ ${(volume * 0.2).toFixed(2)} - ${(volume * 0.3).toFixed(2)}`;
+            priceDropbox.textContent = `$ ${(volume * 0.5).toFixed(2)} - ${(volume * 0.6).toFixed(2)}`;
+        }
+
+        slider.addEventListener("input", () => {
+            updatePrices(parseInt(slider.value, 10));
+        });
+
+        updatePrices(1000);
+    </script>
 </body>
 </html>
