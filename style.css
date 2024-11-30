@@ -199,15 +199,13 @@
         
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-        .plans {
-            flex-direction: column;
-            align-items: center;
-        }
-
+    @media (max-width: 576px) {
         .plan {
-            width: 90%;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .slider-container {
+            margin: 1rem 0;
         }
     }
     #api-pricing {
@@ -251,6 +249,10 @@
         border: none; /* Eliminar borde */
         cursor: pointer;
         transition: background 0.3s ease;
+    }
+    #volume-slider::-webkit-slider-thumb:hover {
+        background: var(--accent-color);
+        transform: scale(1.2);
     }
 
     #volume-slider::-moz-range-thumb {
@@ -383,4 +385,5 @@
     .label-100000 {
         left: 99%; /* Extremo derecho */
     }
+    
 

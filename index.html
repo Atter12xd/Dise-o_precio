@@ -56,7 +56,7 @@
         <section id="api-pricing">
             <h2>RECARGAS</h2>
             <p class="subtitle">
-                Precios ajustados al volumen de firmas electrónicas y digital. Sin costos ocultos ni compromisos anuales.
+                Precios ajustados al volumen de sobres digitales.
             </p>
             <p id="slider-value">1,000 sobres al mes</p>
         
@@ -88,6 +88,7 @@
                 </div>
             </div>
         </section>
+        
     </main>
 
     <script>
@@ -99,9 +100,26 @@
 
         function updatePrices(volume) {
             sliderValue.textContent = `${volume.toLocaleString()} sobres al mes`;
-            priceFirmEasy.textContent = `$ ${(volume * 0.08).toFixed(2)}`;
-            priceDocusign.textContent = `$ ${(volume * 0.2).toFixed(2)} - ${(volume * 0.3).toFixed(2)}`;
-            priceDropbox.textContent = `$ ${(volume * 0.5).toFixed(2)} - ${(volume * 0.6).toFixed(2)}`;
+
+            // Lógica de precios para FirmEasy
+            let firmEasyPrice;
+            if (volume <= 1000) {
+                firmEasyPrice = volume * 0.099;
+            } else if (volume <= 10000) {
+                firmEasyPrice = 1000 * 0.099 + (volume - 1000) * 0.07;
+            } else {
+                firmEasyPrice = 1000 * 0.099 + 9000 * 0.07 + (volume - 10000) * 0.05;
+            }
+
+            // Lógica de precios para DocuSign y Dropbox (ejemplo con rangos)
+            let docusignPriceLow = (volume * 0.2).toFixed(2);
+            let docusignPriceHigh = (volume * 0.3).toFixed(2);
+            let dropboxPriceLow = (volume * 0.5).toFixed(2);
+            let dropboxPriceHigh = (volume * 0.6).toFixed(2);
+
+            priceFirmEasy.textContent = `$ ${firmEasyPrice.toFixed(2)}`;
+            priceDocusign.textContent = `$ ${docusignPriceLow} - ${docusignPriceHigh}`;
+            priceDropbox.textContent = `$ ${dropboxPriceLow} - ${dropboxPriceHigh}`;
         }
 
         slider.addEventListener("input", () => {
